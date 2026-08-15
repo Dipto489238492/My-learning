@@ -1,3 +1,17 @@
+function cheakInput(event){
+        if (event.key.length>1){
+                return true;
+        }
+        if ((event.key >='0' && event.key <='9') || event.key === '.'){
+                document.getElementById(warningArea).innerHTML = "";
+                return true;
+         } else{
+                document.getElementById("warningArea").innerHTML = "Numbers only please!";
+                event.preventDefault();
+                return false;
+         }
+       }
+                
 function doMath() {
         // 1. Grab the mumbers from the input boxes
         let rMean = document.getElementById("meanBox").value;
