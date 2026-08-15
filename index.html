@@ -3,13 +3,13 @@
     <h1>EQA range Calculation</h1>
 
     <p>Mean Value</p>
-    <input type="number" step="0.01" id="meanBox" onkeydown="return event.key !== 'e' && event.key ! == 'E'">
+    <input type="number" step="0.01" id="meanBox" onkeydown="return event.key !== 'e' && event.key !== 'E'">
 
     <p>Your Result:</p>
-    <input type="number" step="0.01" id="resultBox" onkeydown="return event.key !== 'e' && event.key ! == 'E'">
+    <input type="number" step="0.01" id="resultBox" onkeydown="return event.key !== 'e' && event.key !== 'E'">
 
     <p>Z-Score:</p>
-    <input type="number" step="0.01" id="zScoreBox" onkeydown="return event.key !== 'e' && event.key ! == 'E'">
+    <input type="number" step="0.01" id="zScoreBox" onkeydown="return event.key !== 'e' && event.key !== 'E'">
 
     <button onclick="doMath()">Calculate Ranges</button>
     <h2 id="answerArea"></h2>
