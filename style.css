@@ -1,0 +1,76 @@
+/* The Background of the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f3;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    margin: 0;
+}
+
+/* The White App Box */
+.calculator-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 350px;
+}
+
+/* The Title */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+/* The Text Labels */
+p {
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+
+/* The Typing Boxes */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Make the box blue when clicked */
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* The Calculate Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #2980b9;
+}
+
+/* The Answer Area */
+#answerArea {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #27ae60;
+    text-align: center;
+}
