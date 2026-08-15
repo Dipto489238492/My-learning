@@ -1,38 +1,65 @@
-function cheakInput(event){
-        if (event.key.length>1){
-                return true;
-        }
-        if ((event.key >='0' && event.key <='9') || event.key === '.'){
-                document.getElementById(warningArea).innerHTML = "";
-                return true;
-         } else{
-                document.getElementById("warningArea").innerHTML = "Numbers only please!";
-                event.preventDefault();
-                return false;
-         }
-       }
-                
+// 1. Strict filter to block 'e' and 'E' from being typed at all
+function blockLetters(event) {
+    if (event.key === 'e' || event.key === 'E') {
+        event.preventDefault(); // Stops the key press instantly
+    }
+}
+
+// 2. The main math engine
 function doMath() {
-        // 1. Grab the mumbers from the input boxes
-        let rMean = document.getElementById("meanBox").value;
-        let rResult = document.getElementById("resultBox").value;
-        let RZScore = document.getElementById("zScoreBox").value;
+  let rMean = document.getElementById("meanBox").value;
+  let rResult = document.getElementById("resultBox").value;
+  let RZScore = document.getElementById("zScoreBox").value;
 
-        if(rMean === "" || rResult === "" || RZScore === ""){alert("Dont let it empty"); return;}
+  // SECURITY CHECK: If empty, show the error pop-up
+  if(rMean === "" || rResult === "" || RZScore === "") {
+    showModal(
+        "Missing Data!", 
+        "<p style='color: red;'>Please enter valid numbers in all fields. Do not leave them empty.</p>", 
+        "Try Again"
+    );
+    return; // Stop the script
+  }
 
-        // if done
-        let mean = Number(rMean)
-        let result = Number(rResult)
-        let zScore = Number(RZScore)
-        
-        // 2. Claculate the 1SD value
-        let sd = (result - mean) / zScore;
-        // 3. Calculate 2SD Range
-        let lower2SD = mean - (2 * sd);
-        let upper2SD = mean + (2 *sd);
-        // 4. Calculate 3SD Range
-        let lower3SD = mean - (3 * sd);
-        let upper3SD = mean + (3 *sd);
-        // 5. Inject the final answar
-        document.getElementById("answerArea").innerHTML = "2SD range :" + lower2SD.toFixed(2) + " to " + upper2SD.toFixed(2) + "<br> 3SD range :" + lower3SD.toFixed(2) + " to " + upper3SD.toFixed(2);
-      }
+  // Convert to numbers
+  let mean = Number(rMean);
+  let result = Number(rResult);
+  let zScore = Number(RZScore);
+  
+  // Calculate
+  let sd = (result - mean) / zScore;
+  let lower2SD = mean - (2 * sd);
+  let upper2SD = mean + (2 * sd);
+  let lower3SD = mean - (3 * sd);
+  let upper3SD = mean + (3 * sd);
+  
+  // Format the result text for the pop-up
+  let successText = `
+    <p style="color: #27ae60; font-weight: bold;">2SD Range:<br> ${lower2SD.toFixed(2)} to ${upper2SD.toFixed(2)}</p>
+    <p style="color: #27ae60; font-weight: bold;">3SD Range:<br> ${lower3SD.toFixed(2)} to ${upper3SD.toFixed(2)}</p>
+  `;
+
+  // Show the success pop-up
+  showModal("Success!", successText, "Calculate Again");
+}
+
+// 3. Engine to turn ON the pop-up box
+function showModal(title, message, buttonText) {
+    document.getElementById("modalTitle").innerHTML = title;
+    document.getElementById("modalMessage").innerHTML = message;
+    document.getElementById("modalButton").innerHTML = buttonText;
+    
+    // This removes the "hidden" CSS class, making the box appear
+    document.getElementById("customModal").classList.remove("hidden");
+}
+
+// 4. Engine to turn OFF the pop-up box
+function closeModal() {
+    // This adds the "hidden" CSS class back, making the box disappear
+    document.getElementById("customModal").classList.add("hidden");
+    
+    // Optional: Clear the boxes so it's ready for a fresh calculation
+    document.getElementById("meanBox").value = "";
+    document.getElementById("resultBox").value = "";
+    document.getElementById("zScoreBox").value = "";
+}
