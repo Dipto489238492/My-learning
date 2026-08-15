@@ -1,4 +1,4 @@
-/* The Background of the entire page */
+/* Background of the entire page */
 body {
     font-family: Arial, sans-serif;
     background-color: #eef2f3;
@@ -18,21 +18,19 @@ body {
     max-width: 350px;
 }
 
-/* The Title */
 h1 {
     text-align: center;
     color: #2c3e50;
     font-size: 24px;
 }
 
-/* The Text Labels */
 p {
     font-weight: bold;
     color: #34495e;
     margin-bottom: 5px;
 }
 
-/* The Typing Boxes */
+/* Typing Boxes */
 input {
     width: 100%;
     padding: 10px;
@@ -43,13 +41,12 @@ input {
     font-size: 16px;
 }
 
-/* Make the box blue when clicked */
 input:focus {
     border-color: #3498db;
     outline: none;
 }
 
-/* The Calculate Button */
+/* Buttons */
 button {
     width: 100%;
     padding: 12px;
@@ -62,15 +59,50 @@ button {
     cursor: pointer;
 }
 
-/* Button hover effect */
 button:hover {
     background-color: #2980b9;
 }
 
-/* The Answer Area */
-#answerArea {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #27ae60;
+/* =========================================
+   CUSTOM POP-UP (MODAL) STYLES 
+   ========================================= */
+
+/* The dark semi-transparent background over the whole screen */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Keeps it on top of everything */
+}
+
+/* The white box floating in the middle */
+.modal-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px;
     text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-box h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+#modalMessage {
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+/* A special CSS class just to hide things */
+.hidden {
+    display: none !important;
 }
