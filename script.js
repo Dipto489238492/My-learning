@@ -4,12 +4,12 @@ function doMath() {
         let rResult = document.getElementById("resultBox").value;
         let RZScore = document.getElementById("zScoreBox").value;
 
-        if(rMean === "" || rResult === "" || RZscore === ""){alart("Dont let it empty"); return;}
+        if(rMean === "" || rResult === "" || RZScore === ""){alert("Dont let it empty"); return;}
 
         // if done
         let mean = Number(rMean)
         let result = Number(rResult)
-        let zScore Number(RZScore)
+        let zScore = Number(RZScore)
         
         // 2. Claculate the 1SD value
         let sd = (result - mean) / zScore;
