@@ -2,15 +2,18 @@
   <body>
     <h1>EQA range Calculation</h1>
 
+    <!-- This is our new dedicated warning area -->
+    <p id="warningArea" style="color: red; font-weight: bold; height: 20px;"></p>
+
     <p>Mean Value</p>
-    <input type="number" step="0.01" id="meanBox" onkeydown="return event.key !== 'e' && event.key !== 'E'">
+    <input type="number" step="0.01" id="meanBox" onkeydown="checkInput(event)">
 
     <p>Your Result:</p>
-    <input type="number" step="0.01" id="resultBox" onkeydown="return event.key !== 'e' && event.key !== 'E'">
+    <input type="number" step="0.01" id="resultBox" onkeydown="checkInput(event)">
 
     <p>Z-Score:</p>
-    <input type="number" step="0.01" id="zScoreBox" onkeydown="return event.key !== 'e' && event.key !== 'E'">
-
+    <input type="number" step="0.01" id="zScoreBox" onkeydown="checkInput(event)">
+    
     <button onclick="doMath()">Calculate Ranges</button>
     <h2 id="answerArea"></h2>
     <script src="script.js"></script>
