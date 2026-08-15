@@ -1,0 +1,16 @@
+function doMath() {
+        // 1. Grab the mumbers from the input boxes
+        let mean = Number(document.getElementById("meanBox").value);
+        let result = Number(document.getElementById("resultBox").value);
+        let zScore = Number(document.getElementById("zScoreBox").value);
+        // 2. Claculate the 1SD value
+        let sd = (result - mean) / zScore;
+        // 3. Calculate 2SD Range
+        let lower2SD = mean - (2 * sd);
+        let upper2SD = mean + (2 *sd);
+        // 4. Calculate 3SD Range
+        let lower3SD = mean - (3 * sd);
+        let upper3SD = mean + (3 *sd);
+        // 5. Inject the final answar
+        document.getElementById("answerArea").innerHTML = "2SD range :" + lower2SD + " to " + upper2SD + "<br> 3SD range :" + lower3SD + " to " + upper3SD;
+      }
