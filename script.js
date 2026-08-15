@@ -1,8 +1,16 @@
 function doMath() {
         // 1. Grab the mumbers from the input boxes
-        let mean = Number(document.getElementById("meanBox").value);
-        let result = Number(document.getElementById("resultBox").value);
-        let zScore = Number(document.getElementById("zScoreBox").value);
+        let rMean = document.getElementById("meanBox").value;
+        let rResult = document.getElementById("resultBox").value;
+        let RZScore = document.getElementById("zScoreBox").value;
+
+        if(rMean === "" || rResult === "" || RZscore === ""){alart("Dont let it empty"); return;}
+
+        // if done
+        let mean = Number(rMean)
+        let result = Number(rResult)
+        let zScore Number(RZScore)
+        
         // 2. Claculate the 1SD value
         let sd = (result - mean) / zScore;
         // 3. Calculate 2SD Range
