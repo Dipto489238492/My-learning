@@ -1,33 +1,37 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <!-- This links your HTML to your CSS paint! -->
+    <title>EQA Range Calculator</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     
-    <!-- We wrap the whole app in this "calculator-card" box -->
+    <!-- MAIN CALCULATOR CARD -->
     <div class="calculator-card">
-        
         <h1>EQA range Calculation</h1>
 
-        <!-- Our dedicated warning area -->
-        <p id="warningArea" style="color: red; font-weight: bold; height: 20px;"></p>
-
         <p>Mean Value</p>
-        <input type="number" step="0.01" id="meanBox" onkeydown="checkInput(event)">
+        <input type="number" step="0.01" id="meanBox" onkeydown="blockLetters(event)">
 
         <p>Your Result:</p>
-        <input type="number" step="0.01" id="resultBox" onkeydown="checkInput(event)">
+        <input type="number" step="0.01" id="resultBox" onkeydown="blockLetters(event)">
 
         <p>Z-Score:</p>
-        <input type="number" step="0.01" id="zScoreBox" onkeydown="checkInput(event)">
+        <input type="number" step="0.01" id="zScoreBox" onkeydown="blockLetters(event)">
 
         <button onclick="doMath()">Calculate Ranges</button>
-        <h2 id="answerArea"></h2>
-        
     </div>
 
-    <!-- The JavaScript link stays at the bottom -->
+    <!-- CUSTOM POP-UP BOX (Hidden by default) -->
+    <div id="customModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h2 id="modalTitle">Title</h2>
+            <div id="modalMessage">Message goes here</div>
+            <!-- This button closes the pop-up -->
+            <button onclick="closeModal()" id="modalButton">Calculate Again</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
